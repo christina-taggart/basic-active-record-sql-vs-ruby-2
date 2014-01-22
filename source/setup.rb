@@ -25,39 +25,26 @@ module StudentDB
 
   def self.seed
     # Add a few records to your database when you start
-    $db.execute(
+    $db.execute_batch(
       <<-SQL
         INSERT INTO students
           (first_name, last_name, gender, birthday, email, phone, created_at, updated_at)
         VALUES
           ('Brick','Thornton', 'm', DATE('1980-02-03'), 'brick@devbootcamp.com','555-555-5555', DATETIME('now'), DATETIME('now'));
-      SQL
-    )
 
-        $db.execute(
-      <<-SQL
 
         INSERT INTO students
           (first_name, last_name, gender, birthday, email, phone, created_at, updated_at)
         VALUES
         ('Alex','Leishman', 'm', DATE('1990-02-20'), 'leishman3@gmail.com', '301.351.0949', DATETIME('now'), DATETIME('now'));
 
-        INSERT INTO students
-          (first_name, last_name, gender, birthday, email, phone, created_at, updated_at)
-        VALUES
-          ('Nicholas','Cu', 'm', DATE('1986-02-20'), 'nicholascu@gmail.com', '916.215.1110', DATETIME('now'), DATETIME('now'));
-        -- Create two more students who are at least as cool as this one.
-      SQL
-    )
 
-            $db.execute(
-          <<-SQL
-            INSERT INTO students
-              (first_name, last_name, gender, birthday, email, phone, created_at, updated_at)
-            VALUES
-              ('Nicholas','Cu', 'm', DATE('1986-02-20'), 'nicholascu@gmail.com', '916.215.1110', DATETIME('now'), DATETIME('now'));
-            -- Create two more students who are at least as cool as this one.
-          SQL
-        )
+      INSERT INTO students
+        (first_name, last_name, gender, birthday, email, phone, created_at, updated_at)
+      VALUES
+        ('Nicholas','Cu', 'm', DATE('1986-02-20'), 'nicholascu@gmail.com', '916.215.1110', DATETIME('now'), DATETIME('now'));
+      -- Create two more students who are at least as cool as this one.
+    SQL
+  )
   end
 end
